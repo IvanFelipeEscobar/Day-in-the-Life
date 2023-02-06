@@ -1,5 +1,5 @@
 {
-  "name": "project-2",
+  "name": "Day in the Life",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/IvanFelipeEscobar/Project-2.git"
+    "url": "git+ssh://git@github.com:IvanFelipeEscobar/Day-in-the-Life.git"
   },
   "author": "",
   "license": "ISC",
@@ -23,8 +23,8 @@
     "sequelize": "^6.3.5"
   },
   "bugs": {
-    "url": "https://github.com/IvanFelipeEscobar/Project-2/issues"
+    "url": "https://github.com/IvanFelipeEscobar/Day-in-the-Life/issues"
   },
-  "homepage": "https://github.com/IvanFelipeEscobar/Project-2#readme",
+  "homepage": "https://github.com/IvanFelipeEscobar/Day-in-the-Life#readme",
   "description": ""
 }
