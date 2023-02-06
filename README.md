@@ -56,12 +56,17 @@ Links to the deployed application and the GitHub repository.
 ## Description
 
 [Github Repository](https://github.com/IvanFelipeEscobar/Day-in-the-Life)
+
 [Deployed Application](https://day-in-the-life.herokuapp.com/)
 
 ## Credits
 
 Ivan Escobar | [Github](https://github.com/IvanFelipeEscobar)
+
 Lauren Bentley | [Github](https://github.com/indwomt)
+
 Kelley Boothe | [Github](https://github.com/zellyb)
+
 Luis Garcia |  [Github](https://github.com/LuisFGarciaN)
+
 Ivan Padua | [Github](https://github.com/LuisFGarcia)
