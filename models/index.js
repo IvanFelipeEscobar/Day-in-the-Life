@@ -1,5 +1,5 @@
 const User = require(`./user`)
-const Entry = require(`./Entry`)
+const Entry = require(`./journalEntry`)
 const Comment = require(`./comment`)
 
 User.hasMany(Entry, {
@@ -15,10 +15,10 @@ Comment.belongsTo(User, {
     foreignKey: `user_id`
 })
 Entry.hasMany(Comment, {
-    foreignKey: `Entry_id`
+    foreignKey: `entry_id`
 })
 Comment.belongsTo(Entry, {
-    foreignKey: `Entry_id`
+    foreignKey: `entry_id`
 })
 
 module.exports = {User, Entry, Comment}
