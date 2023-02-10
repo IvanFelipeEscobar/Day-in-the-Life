@@ -56,6 +56,9 @@ router.get(`/post/:id`, async (req, res) => {
             attributes: `name`
         }]
     })
+    if(!byIdData){
+        res.status(404).json({message: `no entries found`})
+    }
     const singleEntry = byIdData.map((entry) => entry.get({plain:true}))
     res.render(`singlePost`, {singleEntry, loggedIn: req.session.loggedIn})
    } catch (err) {
