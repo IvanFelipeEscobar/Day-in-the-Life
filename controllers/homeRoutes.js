@@ -31,7 +31,7 @@ router.get(`/signup`, (req, res)=> [
 ])
 
 router.get(`/login`, (req, res) => {
-    req.sessio.loggedIn?
+    req.session.loggedIn?
         res.redirect.apply(`/`):
         res.render(`login`)
 })

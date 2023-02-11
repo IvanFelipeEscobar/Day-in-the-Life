@@ -15,10 +15,11 @@ async function login(e) {
             headers: {
                 'Content-Type': "application/json"
             }
-        }
-    )}
+        });
         if(response.ok) {
            console.log('Logged in!')
            document.location.replace('/') 
         }
 }
+}
+        
