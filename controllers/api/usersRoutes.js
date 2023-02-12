@@ -33,7 +33,7 @@ router.get(`/:id`, async (req, res) => {
                     attributes: [`id`, `comment_content`, `created_at`],
                     include: {
                         model: Entry,
-                        attributes: `entry_title`
+                        attributes: [`entry_title`]
                     }
                 }
             ]
@@ -128,7 +128,7 @@ router.put(`/:id`, async (req, res) => {
 })
 
 //api/user/:id delete route
-router.delete(`./:id`, async (req, res) => {
+router.delete(`/:id`, async (req, res) => {
     try {
         const dbDelete = await User.destroy({
             where: {
