@@ -14,12 +14,12 @@ router.get(`/`, async (req, res) => {
                 attributes: [`id`, `comment_content`, `post_id`, `user_id`],
                 include: {
                     model: User,
-                    attributes: `name`
+                    attributes: [`name`]
                 }
             },
             {
                 model: User,
-                attributes: `name`
+                attributes: [`name`]
             }]
         })
         const userEntries = userData.map((entry)=> entry.get({plain:true}))
@@ -41,12 +41,12 @@ router.get(`/post/:id`, async (req, res) => {
              attributes: [`id`, `comment_content`, `post_id`, `user_id`],
              include: {
                  model: User,
-                 attributes: `name`
+                 attributes: [`name`]
              }
          },
          {
              model: User,
-             attributes: `name`
+             attributes: [`name`]
          }]
      })
      if(!byIdData){

@@ -10,14 +10,14 @@ router.get(`/`, async (req, res) => {
             order: [['created_at', 'DESC']],
             include:[ {
                 model:User,
-                attributes: `name`
+                attributes: [`name`]
             },
             {
                 model: Comment,
                 attributes: [`id`, `user_id`, `entry_id`, `comment_content`, `created_at`],
                 include: {
                     model: User,
-                    attributes: `name`
+                    attributes: [`name`]
                 }
             }]
         })
@@ -37,14 +37,14 @@ router.get(`/`, async (req, res) => {
             order: [['created_at', 'DESC']],
             include:[ {
                 model:User,
-                attributes: `name`
+                attributes: [`name`]
             },
             {
                 model: Comment,
                 attributes: [`id`, `user_id`, `entry_id`, `comment_content`, `created_at`],
                 include: {
                     model: User,
-                    attributes: `name`
+                    attributes: [`name`]
                 }
             }]
         })

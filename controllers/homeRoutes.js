@@ -12,12 +12,12 @@ router.get(`/`, async (req, res) => {
                 attributes: [`id`, `comment_content`, `post_id`, `user_id`],
                 include: {
                     model: User,
-                    attributes: `name`
+                    attributes: [`name`]
                 }
             },
             {
                 model: User,
-                attributes: `name`
+                attributes: [`name`]
             }]
         })
         const entries = entryData.map((entry) => entry.get({ plain:true }))
@@ -27,12 +27,12 @@ router.get(`/`, async (req, res) => {
 router.get(`/signup`, (req, res)=> [
     req.session.loggedIn?
     res.redirect(`/`):
-    res.render.apply(`/signup`)
+    res.render(`/signup`)
 ])
 
 router.get(`/login`, (req, res) => {
-    req.sessio.loggedIn?
-        res.redirect.apply(`/`):
+    req.session.loggedIn?
+        res.redirect(`/`):
         res.render(`login`)
 })
 
@@ -48,18 +48,18 @@ router.get(`/post/:id`, async (req, res) => {
             attributes: [`id`, `comment_content`, `post_id`, `user_id`],
             include: {
                 model: User,
-                attributes: `name`
+                attributes: [`name`]
             }
         },
         {
             model: User,
-            attributes: `name`
+            attributes: [`name`]
         }]
     })
     if(!byIdData){
         res.status(404).json({message: `no entries found`})
     }
-    const singleEntry = byIdData.map((entry) => entry.get({plain:true}))
+    const singleEntry = byIdData.get({plain:true})
     res.render(`singlePost`, {singleEntry, loggedIn: req.session.loggedIn})
    } catch (err) {
     res.status(500).json(err)
