@@ -1,0 +1,26 @@
+<div class="card">
+        <h5 class="card-header">Edit Your Profile</h5>
+        <form class="card-body">
+          <div class="mb-3">
+            <label for="newUserName" class="form-label">User Name for Journal:</label>
+            <input type="text" class="form-control" id="newUserName" placeholder="{{user_name}}">
+          </div>
+          <div class="mb-3">
+            <label for="newName" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="newName" placeholder="{{name}}">
+          </div>
+             <label for="newUserEmail" class="form-label">Email:</label>
+            <input type="text" class="form-control" id="newUserEmail" placeholder="{{email}}">
+          </div>
+             <label for="userLocation" class="form-label">Location:</label>
+            <input type="text" class="form-control" id="userLocation" placeholder="{{location}}">
+          </div>
+          <div class="mb-3">
+            <label for="newPost" class="form-label">Tell us about yourself:</label>
+            <textarea class="form-control" id="bio" rows="3" placeholder="{{bio}}"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark mb-3" id="editUserSubmit">Submit new User Profile</button>
+        </form>
+      </div>
+
+      <script src="/js/editUser.js"></script>

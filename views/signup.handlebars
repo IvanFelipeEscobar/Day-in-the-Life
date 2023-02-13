@@ -1,47 +1,31 @@
-
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-<h1>New User Sign Up</h1>
-        <form action="submit-form.php" method="post" id="signupForm">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name"><br><br>
-            </div>
-
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="user_username" required><br><br>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="user_email" required><br><br>
-
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="user_password" required><br><br>
-            </div>
-
-            <div class="form-group">
-                <input type="checkbox" id="show-password">
-                <label for="show-password">Show password</label>
-            </div>
-            
-            <div class="form-group">
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="user_location"><br><br>
-            </div>
-            
-            <div class="form-bio">
-                <label for="bio">Bio:</label>
-                    <br>
-                <textarea id="bio" name="user_bio" rows="10" cols="30" placeholder="Let'us know about you "></textarea><br><br>
-            </div>
-
-            
-            <input type="submit" value="Submit">
-            
+  <div class="card">
+        <h5 class="card-header">Sign Up</h5>
+        <form class="card-body" id="signupForm">
+          <div class="mb-3">
+            <label for="newUserEmail" class="form-label">Whats your name? </label>
+            <input type="text" class="form-control" id="newName">
+          </div>
+           <div class="mb-3">
+            <label for="newUserEmail" class="form-label">What will your user name be? </label>
+            <input type="text" class="form-control" id="newUserName">
+          </div>
+           <div class="mb-3">
+            <label for="newUserEmail" class="form-label">Email address: </label>
+            <input type="email" class="form-control" id="newUserEmail">
+          </div>
+          <div class="mb-3">
+            <label for="userName" class="form-label">Tell us a little about yourself: </label>
+            <input type="text" class="form-control" id="userBio">
+          </div>
+           <div class="mb-3">
+            <label for="newUserEmail" class="form-label">Whats your location? </label>
+            <input type="text" class="form-control" id="userLocation">
+          </div>
+          <div class="mb-3">
+            <label for="newUserPassword" class="form-label">Password: (must be atleast 8 character in length)</label>
+            <input type="password" class="form-control" id="newUserPassword">
+          </div>
+          <button type="submit" class="btn btn-dark mb-3">Submit</button>    already signed up?<a href="/login">click here to log in</a>
         </form>
-
-    <script type="text/javascript" src="/js/signup.js"></script>
+      </div>
+<script type="text/javascript" src="/js/signup.js"></script>

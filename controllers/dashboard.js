@@ -22,8 +22,8 @@ router.get(`/`, withAuth, async (req, res) => {
                 attributes: [`name`]
             }]
         })
-        const userEntries = userData.map((entry)=> entry.get({plain:true}))
-        res.render(`dashboard`, {userEntries, loggedIn: req.session.loggedIn})
+        const entries = userData.map((entry)=> entry.get({plain:true}))
+        res.render(`dashboard`, {entries, loggedIn: req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err)       
     }
@@ -62,6 +62,7 @@ router.get(`/post/:id`, withAuth, async (req, res) => {
 router.get(`/profile/:id`, withAuth, async (req, res) => {
     try {
         const userProfile = await User.findOne({
+            attributes: { exclude: `password` },
             where: {
                 id: req.params.id
             }
@@ -72,7 +73,25 @@ router.get(`/profile/:id`, withAuth, async (req, res) => {
         const user = userProfile.get({plain:true})
         res.render(`profile`, {user, loggedIn: req.session.loggedIn})
     } catch (error) {
-        
+        res.status(500).json(error)
+    }
+})
+
+router.get(`/profile/edit/:id`, withAuth, async (req, res) => {
+    try {
+        const userProfile = await User.findOne({
+            attributes: { exclude: `password` },
+            where: {
+                id: req.params.id
+            }
+        })
+        if(!userProfile){
+            res.status(404).json({message: `user not found`})
+        }
+        const user = userProfile.get({plain:true})
+        res.render(`editProfile`, {user, loggedIn: req.session.loggedIn})
+    } catch (error) {
+        res.status(500).json(error)
     }
 })
 //  /dashboard/create

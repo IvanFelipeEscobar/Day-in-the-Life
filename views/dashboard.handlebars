@@ -1,1 +1,21 @@
-{{!--  jquery cdn <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> --}}
+<br>
+<div class="card-header">
+    <a href="/dashboard/create"><button type="submit" class="btn btn-dark mb-3 d-flex">Create New Post</button></a>
+    <br>
+       Your Posts:
+
+  <div class="card-body">
+    
+    {{#if entries.length}}
+
+  
+    {{#each entries as |entry|}}
+      {{> indEntry entry}}
+    {{/each}}
+    </div>
+    {{else}}
+    <h5 class="card">No entries available for display. Journal entries you create will be displayed here</h5>
+    {{/if}}
+  </div>
+  
+</div>
