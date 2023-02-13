@@ -15,7 +15,7 @@ router.get(`/`, async (req, res) => {
     }
 })
 
-// api/user/:id
+// api/users/:id
 router.get(`/:id`, async (req, res) => {
     try {
         const dbByID = await User.findOne({
@@ -71,7 +71,7 @@ router.post(`/`, async (req, res) => {
     }
 })
 
-// api/user/login
+// api/users/login
 router.post(`/login`, async (req, res) => {
     try {
         const userLogin = await User.findOne({
@@ -109,7 +109,7 @@ router.post('/logout', (req, res) => {
     
 })
 
-//api/user/:id update route
+//api/users/:id update route
 router.put(`/:id`, async (req, res) => {
     try {
         const dbUpdate = await User.update(req.body, {
@@ -127,7 +127,7 @@ router.put(`/:id`, async (req, res) => {
     }
 })
 
-//api/user/:id delete route
+//api/users/:id delete route
 router.delete(`/:id`, async (req, res) => {
     try {
         const dbDelete = await User.destroy({

@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { Entry, User, Comment } = require('../models')
 const withAuth = require(`../utils/auth`)
-//  /user routed
+//  /dashboard routed
 router.get(`/`, withAuth, async (req, res) => {
     try {
         const userData = await Entry.findAll({
@@ -28,7 +28,7 @@ router.get(`/`, withAuth, async (req, res) => {
         res.status(500).json(err)       
     }
 })
-// /user/post/:id
+// /dashboard/post/:id
 router.get(`/post/:id`, withAuth, async (req, res) => {
     try {
      const byIdData = Entry.findOne({
@@ -58,7 +58,23 @@ router.get(`/post/:id`, withAuth, async (req, res) => {
      res.status(500).json(err)
     }
 })
-
-// user/create
+//  /dashboard/profile
+router.get(`/profile/:id`, withAuth, async (req, res) => {
+    try {
+        const userProfile = await User.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        if(!userProfile){
+            res.status(404).json({message: `user not found`})
+        }
+        const user = userProfile.get({plain:true})
+        res.render(`profile`, {user, loggedIn: req.session.loggedIn})
+    } catch (error) {
+        
+    }
+})
+//  /dashboard/create
 router.get(`/create`, withAuth, (req, res) => res.render(`new-entry`))
 module.exports =  router

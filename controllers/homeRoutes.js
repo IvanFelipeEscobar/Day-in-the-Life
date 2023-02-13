@@ -26,7 +26,7 @@ router.get(`/`, async (req, res) => {
 router.get(`/signup`, (req, res)=> [
     req.session.loggedIn?
     res.redirect(`/`):
-    res.render(`/signup`)
+    res.render(`signup`)
 ])
 
 router.get(`/login`, (req, res) => {
