@@ -1,8 +1,10 @@
+
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
 <h1>New User Sign Up</h1>
-        <form action="submit-form.php" method="post">
+        <form action="submit-form.php" method="post" id="signupForm">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name" required><br><br>
+                <input type="text" id="name" name="user_name"><br><br>
             </div>
 
             <div class="form-group">
@@ -28,16 +30,18 @@
             
             <div class="form-group">
                 <label for="location">Location:</label>
-                <input type="text" id="location" name="user_location" required><br><br>
+                <input type="text" id="location" name="user_location"><br><br>
             </div>
             
             <div class="form-bio">
                 <label for="bio">Bio:</label>
                     <br>
-                <textarea id="bio" name="user_bio" rows="10" cols="30" placeholder="Let'us know about you " required></textarea><br><br>
+                <textarea id="bio" name="user_bio" rows="10" cols="30" placeholder="Let'us know about you "></textarea><br><br>
             </div>
 
             
             <input type="submit" value="Submit">
             
         </form>
+
+    <script type="text/javascript" src="/js/signup.js"></script>
