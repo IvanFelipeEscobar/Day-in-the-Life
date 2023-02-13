@@ -1,15 +1,14 @@
 const router = require('express').Router()
-const sequelize = require('../config/connection')
-
 const { Entry, User, Comment } = require('../models')
-
+const withAuth = require(`../utils/auth`)
+  
 router.get(`/`, async (req, res) => {
     try {        
         const entryData = await Entry.findAll({
             attributes: [`id`, `entry_title`, `entry_content`, `created_at`],
             include: [{
                 model: Comment,
-                attributes: [`id`, `comment_content`, `post_id`, `user_id`],
+                attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
                 include: {
                     model: User,
                     attributes: [`name`]
@@ -36,7 +35,7 @@ router.get(`/login`, (req, res) => {
         res.render(`login`)
 })
 
-router.get(`/post/:id`, async (req, res) => {
+router.get(`/post/:id`, withAuth, async (req, res) => {
    try {
     const byIdData = Entry.findOne({
         where: {
@@ -45,7 +44,7 @@ router.get(`/post/:id`, async (req, res) => {
         attributes: [`id`, `entry_title`, `entry_content`, `created_at`],
         include: [{
             model: Comment,
-            attributes: [`id`, `comment_content`, `post_id`, `user_id`],
+            attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
             include: {
                 model: User,
                 attributes: [`name`]
