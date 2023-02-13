@@ -62,7 +62,7 @@ router.post(`/`, async (req, res) => {
         const dbCreateEntry = await Entry.create({
             entry_title: req.body.entry_title,
             entry_content: req.body.entry_content,
-            user_id: req.body.user_id
+            user_id: req.session.user_id
         })
         res.json(dbCreateEntry)
     } catch (err) {
