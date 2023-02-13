@@ -35,7 +35,7 @@ router.get(`/login`, (req, res) => {
         res.render(`login`)
 })
 
-router.get(`/post/:id`, withAuth, async (req, res) => {
+router.get(`/entries/:id`, withAuth, async (req, res) => {
    try {
     const byIdData = Entry.findOne({
         where: {
@@ -58,8 +58,8 @@ router.get(`/post/:id`, withAuth, async (req, res) => {
     if(!byIdData){
         res.status(404).json({message: `no entries found`})
     }
-    const singleEntry = byIdData.get({plain:true})
-    res.render(`singlePost`, {singleEntry, loggedIn: req.session.loggedIn})
+    const entry = byIdData.get({plain:true})
+    res.render(`singleEntry`, {entry, loggedIn: req.session.loggedIn})
    } catch (err) {
     res.status(500).json(err)
    }

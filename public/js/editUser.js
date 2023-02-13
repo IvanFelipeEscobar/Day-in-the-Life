@@ -3,7 +3,6 @@ const editUser = async (event) => {
     const name = document.getElementById(`newName`).value.trim()
     const user_name = document.getElementById(`newUserName`).value.trim()
     const email = document.getElementById(`newUserEmail`).value.trim()
-    const password = document.getElementById(`newUserPassword`).value.trim()
     const location = document.getElementById(`userLocation`).value.trim()
     const bio = document.getElementById(`userBio`).value
     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
@@ -11,7 +10,7 @@ const editUser = async (event) => {
 
     const postData = await fetch(`/api/users/${id}`, {
         method: `PUT`,
-        body: JSON.stringify({ id, name, user_name, email, password, location, bio}),
+        body: JSON.stringify({ id, name, user_name, email, location, bio}),
         headers: { 'Content-Type': 'application/json'}
     })
     postData.ok ?

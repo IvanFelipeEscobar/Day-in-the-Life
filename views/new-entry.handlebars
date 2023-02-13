@@ -1,15 +1,16 @@
- <link rel="stylesheet" href="Post.css" />  
-  <div class="card">
-        <div class="card-header">
-          <h2>New Entry</h2>
-        </div>
-        <div class="card-body">
-            <input
-           id="input-box"
-            placeholder="Show off your day in the life!"></input>
-           
-        </div>
-        <div class="card-footer">
-          <button class="btn">Submit</button>
-        </div>
+<div class="card">
+        <h5 class="card-header">Create New Post</h5>
+        <form class="card-body">
+          <div class="mb-3">
+            <label for="postTitle" class="form-label">Entry Title:</label>
+            <input type="text" class="form-control" id="postTitle">
+          </div>
+          <div class="mb-3">
+            <label for="newPost" class="form-label">Tell us about your day:</label>
+            <textarea class="form-control" id="newPost" rows="3" placeholder="enter blog post content here"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark mb-3" id="postSubmit">Submit new Post</button>
+        </form>
       </div>
+
+      <script src="/js/addEntry.js"></script>
