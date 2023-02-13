@@ -3,7 +3,7 @@ const createPost = async (event) => {
 
     const entry_title = document.getElementById(`postTitle`).value
     const entry_content = document.getElementById(`newPost`).value
-if(post_content){
+if(entry_content){
     const postData = await fetch(`/api/entries`, {
         method: `POST`,
         body: JSON.stringify({entry_title, entry_content}),
