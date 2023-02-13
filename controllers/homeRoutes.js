@@ -20,6 +20,9 @@ router.get(`/`, async (req, res) => {
                 attributes: `name`
             }]
         })
+
+        // Does this need to go to dashboard instead?
+        // add a conditional statement about the session or if user is logged in depends if it goes to the landing page or the dashboard view?
         const entries = entryData.map((entry) => entry.get({ plain:true }))
         res.render(`home`, { entries, loggedIn: req.session.loggedIn})
     } catch (err) {res.status(500).json(err)}
