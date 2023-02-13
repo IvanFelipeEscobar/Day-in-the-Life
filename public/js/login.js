@@ -1,16 +1,3 @@
-async function signupForm(e) {
-    e.preventDefault()
-
-    const name = ''
-    const username =''
-    const email = ''
-    const password = ''
-    const bio = ''
-    const location = ''
-
-    
-
-}
 
 //Show password code
 document.getElementById("show-password").addEventListener("change", function() {
@@ -21,3 +8,7 @@ document.getElementById("show-password").addEventListener("change", function() {
       passwordInput.setAttribute("type", "password");
     }
   });
+
+  const loginSubmit = async() => {
+    
+  }
