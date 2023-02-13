@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const sequelize = require('../config/connection')
 const { Entry, User, Comment } = require('../models')
+const withAuth = require(`../utils/auth`)
 //  /user routed
-router.get(`/`, async (req, res) => {
+router.get(`/`, withAuth, async (req, res) => {
     try {
         const userData = await Entry.findAll({
             where: {
@@ -11,7 +11,7 @@ router.get(`/`, async (req, res) => {
             attributes: [`id`, `entry_title`, `entry_content`, `created_at`],
             include: [{
                 model: Comment,
-                attributes: [`id`, `comment_content`, `post_id`, `user_id`],
+                attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
                 include: {
                     model: User,
                     attributes: [`name`]
@@ -29,7 +29,7 @@ router.get(`/`, async (req, res) => {
     }
 })
 // /user/post/:id
-router.get(`/post/:id`, async (req, res) => {
+router.get(`/post/:id`, withAuth, async (req, res) => {
     try {
      const byIdData = Entry.findOne({
          where: {
@@ -38,7 +38,7 @@ router.get(`/post/:id`, async (req, res) => {
          attributes: [`id`, `entry_title`, `entry_content`, `created_at`],
          include: [{
              model: Comment,
-             attributes: [`id`, `comment_content`, `post_id`, `user_id`],
+             attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
              include: {
                  model: User,
                  attributes: [`name`]
@@ -52,7 +52,7 @@ router.get(`/post/:id`, async (req, res) => {
      if(!byIdData){
          res.status(404).json({message: `no entries found`})
      }
-     const singleEntry = byIdData.map((entry) => entry.get({plain:true}))
+     const singleEntry = byIdData.get({plain:true})
      res.render(`singlePost`, {singleEntry, loggedIn: req.session.loggedIn})
     } catch (err) {
      res.status(500).json(err)
@@ -60,5 +60,5 @@ router.get(`/post/:id`, async (req, res) => {
 })
 
 // user/create
-router.get(`/create`, (req, res) => res.render(`new-entry`))
+router.get(`/create`, withAuth, (req, res) => res.render(`new-entry`))
 module.exports =  router
