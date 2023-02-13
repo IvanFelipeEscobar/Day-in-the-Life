@@ -23,6 +23,7 @@ router.get(`/`, withAuth, async (req, res) => {
             }]
         })
         const entries = userData.map((entry)=> entry.get({plain:true}))
+        console.log(entries)
         res.render(`dashboard`, {entries, loggedIn: req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err)       
