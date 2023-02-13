@@ -11,12 +11,12 @@ router.get(`/`, async (req, res) => {
                 attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
                 include: {
                     model: User,
-                    attributes: [`name`]
+                    attributes: [`user_name`]
                 }
             },
             {
                 model: User,
-                attributes: [`name`]
+                attributes: [`user_name`]
             }]
         })
         const entries = entryData.map((entry) => entry.get({ plain:true }))
@@ -39,7 +39,7 @@ router.get(`/entries/:id`, withAuth, async (req, res) => {
    try {
     const byIdData = Entry.findOne({
         where: {
-            id: req.session.id
+            id: req.params.id
         },
         attributes: [`id`, `entry_title`, `entry_content`, `created_at`],
         include: [{
@@ -47,12 +47,12 @@ router.get(`/entries/:id`, withAuth, async (req, res) => {
             attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
             include: {
                 model: User,
-                attributes: [`name`]
+                attributes: [`user_name`]
             }
         },
         {
             model: User,
-            attributes: [`name`]
+            attributes: [`user_name`]
         }]
     })
     if(!byIdData){

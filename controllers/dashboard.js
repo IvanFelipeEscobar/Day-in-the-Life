@@ -6,7 +6,7 @@ router.get(`/`, withAuth, async (req, res) => {
     try {
         const userData = await Entry.findAll({
             where: {
-                id: req.session.id
+                user_id: req.session.user_id
             },
             attributes: [`id`, `entry_title`, `entry_content`, `created_at`],
             include: [{
@@ -14,12 +14,12 @@ router.get(`/`, withAuth, async (req, res) => {
                 attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
                 include: {
                     model: User,
-                    attributes: [`name`]
+                    attributes: [`user_name`]
                 }
             },
             {
                 model: User,
-                attributes: [`name`]
+                attributes: [`user_name`]
             }]
         })
         const entries = userData.map((entry)=> entry.get({plain:true}))
@@ -41,19 +41,19 @@ router.get(`/post/:id`, withAuth, async (req, res) => {
              attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
              include: {
                  model: User,
-                 attributes: [`name`]
+                 attributes: [`user_name`]
              }
          },
          {
              model: User,
-             attributes: [`name`]
+             attributes: [`user_name`]
          }]
      })
      if(!byIdData){
          res.status(404).json({message: `no entries found`})
      }
-     const singleEntry = byIdData.get({plain:true})
-     res.render(`singlePost`, {singleEntry, loggedIn: req.session.loggedIn})
+     const entry = byIdData.get({plain:true})
+     res.render(`singlePost`, {entry, loggedIn: req.session.loggedIn})
     } catch (err) {
      res.status(500).json(err)
     }
