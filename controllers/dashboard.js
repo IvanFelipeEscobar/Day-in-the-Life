@@ -19,12 +19,12 @@ router.get(`/`, withAuth, async (req, res) => {
             },
             {
                 model: User,
-                attributes: [`user_name`]
+                attributes: [`id`, `user_name`]
             }]
         })
         const entries = userData.map((entry)=> entry.get({plain:true}))
         console.log(entries)
-        res.render(`dashboard`, {entries, loggedIn: req.session.loggedIn})
+        res.render(`dashboard`, {entries, loggedIn: req.session.loggedIn, user_id: req.session.user_id})
     } catch (err) {
         res.status(500).json(err)       
     }
@@ -47,14 +47,14 @@ router.get(`/post/:id`, withAuth, async (req, res) => {
          },
          {
              model: User,
-             attributes: [`user_name`]
+             attributes: [`id`, `user_name`]
          }]
      })
      if(!byIdData){
          res.status(404).json({message: `no entries found`})
      }
      const entry = byIdData.get({plain:true})
-     res.render(`singlePost`, {entry, loggedIn: req.session.loggedIn})
+     res.render(`singlePost`, {entry, loggedIn: req.session.loggedIn, user_id: req.session.user_id})
     } catch (err) {
      res.status(500).json(err)
     }
@@ -63,16 +63,16 @@ router.get(`/post/:id`, withAuth, async (req, res) => {
 router.get(`/profile/:id`, withAuth, async (req, res) => {
     try {
         const userProfile = await User.findOne({
-            attributes: { exclude: `password` },
             where: {
                 id: req.params.id
-            }
+            },
+            attributes: [`user_name`, `name`, `email`, `bio`, `location`]
         })
         if(!userProfile){
             res.status(404).json({message: `user not found`})
         }
         const user = userProfile.get({plain:true})
-        res.render(`profile`, {user, loggedIn: req.session.loggedIn})
+        res.render(`profile`, {user, loggedIn: req.session.loggedIn, user_id: req.session.user_id})
     } catch (error) {
         res.status(500).json(error)
     }
@@ -81,7 +81,7 @@ router.get(`/profile/:id`, withAuth, async (req, res) => {
 router.get(`/profile/edit/:id`, withAuth, async (req, res) => {
     try {
         const userProfile = await User.findOne({
-            attributes: { exclude: `password` },
+            attributes: [`user_name`, `name`, `email`, `bio`, `location`],
             where: {
                 id: req.params.id
             }
@@ -90,7 +90,7 @@ router.get(`/profile/edit/:id`, withAuth, async (req, res) => {
             res.status(404).json({message: `user not found`})
         }
         const user = userProfile.get({plain:true})
-        res.render(`editProfile`, {user, loggedIn: req.session.loggedIn})
+        res.render(`editProfile`, {user, loggedIn: req.session.loggedIn, user_id: req.session.user_id})
     } catch (error) {
         res.status(500).json(error)
     }
