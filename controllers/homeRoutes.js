@@ -37,7 +37,7 @@ router.get(`/login`, (req, res) => {
 
 router.get(`/entries/:id`, withAuth, async (req, res) => {
    try {
-    const byIdData = Entry.findOne({
+    const byIdData = await Entry.findOne({
         where: {
             id: req.params.id
         },
