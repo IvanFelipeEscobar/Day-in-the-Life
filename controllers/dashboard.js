@@ -95,6 +95,9 @@ router.get(`/profile/edit/:id`, withAuth, async (req, res) => {
         res.status(500).json(error)
     }
 })
+
+
+
 //  /dashboard/create
 router.get(`/create`, withAuth, (req, res) => res.render(`new-entry`))
 module.exports =  router
