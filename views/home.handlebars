@@ -1,5 +1,22 @@
-<div class="card"><br>
-    <h2>Welcome to Tech-Blog!</h2><br>
+
+
+<div class="row jumborow">
+<div class="jumbotron text-center mx-4 col-12">
+  <h1 class="jumbo-text display-4 align-self-end">A Day in the Life</h1>
+  <p class="lead  ">Keep track of all your days.</p>
+  <hr class="my-4">
+  <div class="container col-1 mr-5 d-flex flex-column py-4 landing-btn">
+  <button type="button" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+    <a href='/login'>Login</a>
+  </button>
+  <button type="button" class=" landing-btn btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+    <a href="/signup">Sign-up</a>
+  </button>
+</div>
+</div>
+
+</div>
+
 {{#if entries.length}}
 {{#each entries as |entry|}}
 <div class="card">
@@ -11,4 +28,4 @@
     no entries available yet
 </div>
 {{/if}}
-</div>
+
