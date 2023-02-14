@@ -1,21 +1,41 @@
-<br>
+{{!-- <br>
 <div class="card-header">
     <a href="/dashboard/create"><button type="submit" class="btn btn-dark mb-3 d-flex">Create New Entry</button></a>
     <br>
-       Your Entries:
+       Your Entries: --}}
 
+  <div class="container-fluid d-flex">
   <div class="card-body">
-    
+
+    <div class="row mx-3 my-5">
+      <div class="sidebar d-flex mx-2 justify-content-between flex-column flex-shrink-0 p-3" style="width: 280px; height:400px">
+        <a href="/dashboard/create"><button type="button" id ='new-entry' style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+          Create Entry
+        </button></a>
+        <button type="button" style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;"class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+          My Feed
+        </button>
+        <button type="button" style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+          All Users
+        </button>
+        <button id="logout"type="button" style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+          Sign Out
+        </button>
+        </div>
+
+   <div class="container d-flex-col col-8">
     {{#if entries.length}}
 
-  
     {{#each entries as |entry|}}
       {{> indEntry entry}}
+      <br>
     {{/each}}
     </div>
     {{else}}
     <h5 class="card">No entries available for display. Journal entries you create will be displayed here</h5>
     {{/if}}
+    </div> 
+  </div>
   </div>
   
 </div>

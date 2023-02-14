@@ -19,9 +19,12 @@
             body: JSON.stringify({email, password}),
             headers: { 'Content-Type': 'application/json' }
         })
-        response.ok ?
-        document.location.replace(`/dashboard`) :
+        if(response.ok) {
+        document.location.replace(`/dashboard`) 
        console.log(response.statusText)
+        } else {
+          window.alert('Wrong email or password. Try again.')
+        }
 
     }
 }

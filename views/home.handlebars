@@ -1,4 +1,13 @@
 
+{{#if loggedIn}}
+<h1>Hello</h1>
+{{!-- {{#if entries.length}}
+{{#each entries as |entry|}}
+<div class="card">
+    {{> indEntry entry}}
+</div>
+{{/each}} --}}
+{{else}}
 
 <div class="row jumborow">
 <div class="jumbotron text-center mx-4 col-12">
@@ -16,16 +25,6 @@
 </div>
 
 </div>
-
-{{#if entries.length}}
-{{#each entries as |entry|}}
-<div class="card">
-    {{> indEntry entry}}
-</div>
-{{/each}}
-{{else}}
-<div>
-    no entries available yet
-</div>
 {{/if}}
+
 
