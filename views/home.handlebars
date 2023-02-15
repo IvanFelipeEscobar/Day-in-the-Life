@@ -1,30 +1,25 @@
 
-{{!-- {{#if loggedIn}}
-<h1>Hello</h1>
-{{!-- {{#if entries.length}}
-{{#each entries as |entry|}}
-<div class="card">
-    {{> indEntry entry}}
-</div>
-{{/each}} --}}
-{{!-- {{else}} --}} --
 
 <div class="row jumborow">
 <div class="jumbotron text-center mx-4 col-12">
-  <h1 class="jumbo-text display-4 align-self-end">A Day in the Life</h1>
+  <br>
+  <img class="landing-img"src="/img/logo.jpg" alt="Day In The Life">
+  <br>
   <p class="lead  ">Keep track of all your days.</p>
   <hr class="my-4">
-  <div class="container col-1 mr-5 d-flex flex-column py-4 landing-btn">
-  <button type="button" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-    <a href='/login'>Login</a>
-  </button>
-  <button type="button" class=" landing-btn btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-    <a href="/signup">Sign-up</a>
-  </button>
+  <div class="container btn-container col-1  d-flex flex-column py-2">
+  <a href='/login'><button type="button"  class= 'landing-btn' data-toggle="button" aria-pressed="false" autocomplete="off">
+    Login
+  </button></a>
+  <br>
+  <a href="/signup"><button type="button" class="landing-btn" data-toggle="button" aria-pressed="false" autocomplete="off">
+    Sign-up
+  </button></a>
+  </div>
 </div>
 </div>
 
 </div>
-{{!-- {{/if}} --}}
+
 
 
