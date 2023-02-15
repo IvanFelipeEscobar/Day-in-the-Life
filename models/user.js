@@ -32,19 +32,24 @@ User.init(
       validate: {
         isEmail: true,
       },
+      require
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8]
-      }
+      },
+      require
     },
     bio: {
         type: DataTypes.TEXT
     },
     location: {
         type: DataTypes.STRING, 
+    },
+    profile_pic: {
+      type: DataTypes.STRING
     }
   },
   {
