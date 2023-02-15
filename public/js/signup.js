@@ -8,12 +8,11 @@ const submitForm = async (event) => {
     const password = document.getElementById(`newUserPassword`).value.trim()
     const location = document.getElementById(`userLocation`).value.trim()
     const bio = document.getElementById(`userBio`).value
-    const profile_pic = document.getElementById(`profile_pic`).value
 
     if( user_name && email && password) {
         const newUser = await fetch(`/api/users`, {
             method: `POST`,
-            body: JSON.stringify({name, user_name, email, password, location, bio, profile_pic}),
+            body: JSON.stringify({name, user_name, email, password, location, bio}),
             headers: { 'Content-Type': 'application/json' }
         })
     newUser.ok?

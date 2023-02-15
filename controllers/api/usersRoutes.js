@@ -71,7 +71,7 @@ router.get(`/:id`, async (req, res) => {
     } catch (err) { res.status(500).json(err)}
 })
 // api/users post route
-router.post(`/`, upload.single(`profile_pic`), async (req, res) => {
+router.post(`/`, async (req, res) => {
     try {
      const dbUser = await  User.create({
          name: req.body.name,
@@ -79,8 +79,7 @@ router.post(`/`, upload.single(`profile_pic`), async (req, res) => {
          email: req.body.email,
          password: req.body.password,
          bio: req.body.bio,
-         location: req.body.location,
-         profile_pic: req.file.path
+         location: req.body.location
 
      })
      req.session.save( () => {
@@ -137,7 +136,7 @@ router.post('/logout', (req, res) => {
 })
 
 //api/users/:id update route
-router.put(`/:id`, upload.single(`profile_pic`),async (req, res) => {
+router.put(`/:id`,async (req, res) => {
     try {
         const dbUpdate = await User.update({
          name: req.body.name,
@@ -145,7 +144,6 @@ router.put(`/:id`, upload.single(`profile_pic`),async (req, res) => {
          email: req.body.email,
          bio: req.body.bio,
          location: req.body.location,
-         profile_pic: req.file.path
         }, {
             individualHooks: true,
             where: {
@@ -158,6 +156,21 @@ router.put(`/:id`, upload.single(`profile_pic`),async (req, res) => {
         res.json(dbUpdate)
     } catch (err) {
         res.status(500).json(err)
+    }
+})
+router.put(`/picture/:id`, upload.single(`profile_pic`), async (req, res)=>{
+    try {
+        const profilePic = await User.update({
+         profile_pic: req.file.path
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.json(profilePic)
+    } catch (error) {
+        res.status(500).json(error)
     }
 })
 

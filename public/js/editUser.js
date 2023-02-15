@@ -6,13 +6,11 @@ const editUser = async (event) => {
     const location = document.getElementById(`userLocation`).value.trim()
     const bio = document.getElementById(`userBio`).value
     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
-
-    const profile_pic = document.getElementById(`profile_pic`).value
      
 
     const postData = await fetch(`/api/users/${id}`, {
         method: `PUT`,
-        body: JSON.stringify({ id, name, user_name, email, location, bio, profile_pic}),
+        body: JSON.stringify({ id, name, user_name, email, location, bio}),
         headers: { 'Content-Type': 'application/json'}
     })
     postData.ok ?

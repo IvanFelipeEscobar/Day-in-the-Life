@@ -28,4 +28,4 @@
 
     }
 }
-document.getElementById(`loginSubmit`).addEventListener(`submit`, loginSubmit)
+document.getElementById(`loginSubmit`).addEventListener(`click`, loginSubmit)
