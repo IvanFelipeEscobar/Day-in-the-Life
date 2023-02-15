@@ -51,3 +51,37 @@ input[type="submit"] {
     cursor: pointer;
     box-shadow: 0.5px 2px 6px 1.5px #66fcf1;
 }
+
+.jumbotron {
+    background-color: #45a29e;
+    height: 900px;
+    margin-top: 40px;
+    padding-top: 150px;
+    
+}
+
+.nav-img {
+    height:50px;
+    width:200px;
+    margin-left: 50px;
+}
+
+.jumborow {
+    margin-top: 100px;
+}
+
+.lead {
+    font-family: "Courgette"
+}
+
+.landing-btn {
+    border-radius: 15px;
+    width: 200px;
+    height: 50px;
+    margin-right: 50px;
+    background-color: #c5c6c7;
+    font-family: 'courgette';
+    box-shadow:05px 7px 15px 6px #c5c6c7
+
+}
+
