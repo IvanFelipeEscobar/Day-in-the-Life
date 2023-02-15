@@ -22,7 +22,7 @@ router.get(`/`, async (req, res) => {
         })
         const entries = entryData.map((entry) => entry.get({ plain:true }))
         console.log(entries)
-        res.render(`home`, { entries, loggedIn: req.session.loggedIn, user_id: req.session.user_id})
+        res.render(`allUserPosts`, { entries, loggedIn: req.session.loggedIn, user_id: req.session.user_id})
     } catch (err) {res.status(500).json(err)}
 })
 router.get(`/signup`, (req, res)=> [
