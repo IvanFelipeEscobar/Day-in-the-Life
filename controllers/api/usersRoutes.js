@@ -137,9 +137,16 @@ router.post('/logout', (req, res) => {
 })
 
 //api/users/:id update route
-router.put(`/:id`, async (req, res) => {
+router.put(`/:id`, upload.single(`profile_pic`),async (req, res) => {
     try {
-        const dbUpdate = await User.update(req.body, {
+        const dbUpdate = await User.update({
+         name: req.body.name,
+         user_name: req.body.user_name,
+         email: req.body.email,
+         bio: req.body.bio,
+         location: req.body.location,
+         profile_pic: req.file.path
+        }, {
             individualHooks: true,
             where: {
                 id: req.params.id
