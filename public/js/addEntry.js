@@ -14,4 +14,4 @@ if(entry_content){
     console.log(postData.statusText)}
 }
 
-document.getElementById(`postSubmit`).addEventListener(`click`, createPost)
+document.getElementById(`postSubmit`).addEventListener(`submit`, createPost)
