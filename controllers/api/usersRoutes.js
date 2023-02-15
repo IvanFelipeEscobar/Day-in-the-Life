@@ -1,5 +1,30 @@
 const router = require('express').Router()
 const sequelize = require('../../config/connection')
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: (req, file, cb)=>{
+        cb(null, './uploads/')
+    },
+    filename: (req, file, cb)=>{
+        cb(null, new Date().toISOString() + file.originalname)
+    }
+})
+const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  };
+
+  const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1024 * 1024 * 5 //5MB
+    },
+    fileFilter: fileFilter
+  })
 
 const { Entry, User, Comment } = require('../../models')
 // api/users route
@@ -46,7 +71,7 @@ router.get(`/:id`, async (req, res) => {
     } catch (err) { res.status(500).json(err)}
 })
 // api/users post route
-router.post(`/`, async (req, res) => {
+router.post(`/`, upload.single(`profile_pic`), async (req, res) => {
     try {
      const dbUser = await  User.create({
          name: req.body.name,
@@ -54,7 +79,8 @@ router.post(`/`, async (req, res) => {
          email: req.body.email,
          password: req.body.password,
          bio: req.body.bio,
-         location: req.body.location
+         location: req.body.location,
+         profile_pic: req.file.path
 
      })
      req.session.save( () => {
