@@ -82,6 +82,16 @@ input[type="submit"] {
     background-color: #c5c6c7;
     font-family: 'courgette';
     box-shadow:05px 7px 15px 6px #c5c6c7
-
 }
+
+.login-card {
+    width: 400px;
+    margin-left: 400px;
+    font-family: 'Courgette';
+    border: #66fcf1;
+}
+
+
+
+
 
