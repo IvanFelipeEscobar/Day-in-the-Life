@@ -29,28 +29,28 @@
         </form>
       </div> --}}
 
-<div  class="container col-8 d-flex-col justify-content-center">
-<h1>New User Sign Up</h1>
-        <form action="submit-form.php" id='signupForm' method="post">
+<div class="form-box">
+        <h1>New User Sign Up</h1>
+        <form action="submit-form.php" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="newName" name="user_name" required><br><br>
+                <input type="text" id="name" name="user_name" required><br><br>
             </div>
 
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="newUserName" name="user_username" required><br><br>
+                <input type="text" id="username" name="user_username" required><br><br>
             </div>
 
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="newUserEmail" name="user_email" required><br><br>
+                <input type="email" id="email" name="user_email" required><br><br>
 
             </div>
             
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="newUserPassword" name="user_password" required><br><br>
+                <input type="password" id="password" name="user_password" required><br><br>
             </div>
 
             <div class="form-group">
@@ -60,13 +60,13 @@
             
             <div class="form-group">
                 <label for="location">Location:</label>
-                <input type="text" id="userLocation" name="user_location" required><br><br>
+                <input type="text" id="location" name="user_location" required><br><br>
             </div>
             
             <div class="form-bio">
                 <label for="bio">Bio:</label>
                     <br>
-                <textarea id="userBio" name="user_bio" rows="10" cols="30" placeholder="Let'us know about you " required></textarea><br><br>
+                <textarea id="bio" name="user_bio" rows="10" cols="30" placeholder="Let'us know about you " required></textarea><br><br>
             </div>
             <label for="profile_pic" class="form-label">Choose a profile image to upload. Must be in jpeg or png format and less than 5MB </label>
             <input type="file" class="form-control" id="profile_pic">
@@ -74,7 +74,7 @@
             <input type="submit" value="Submit">
             
         </form>
-        </div>
+    </div>
 <script type="text/javascript" src="/js/signup.js"></script>
 
    
