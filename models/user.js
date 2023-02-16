@@ -49,7 +49,8 @@ User.init(
         type: DataTypes.STRING, 
     },
     profile_pic: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue: "/default.jpeg"
     }
   },
   {
