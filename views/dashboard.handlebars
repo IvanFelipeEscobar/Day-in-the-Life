@@ -13,9 +13,9 @@
         <a href="/"><button type="button" style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
           All Users
         </button></a>
-        <button id="logout"type="button" style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        <a href="/landing"><button id="logout"type="button" style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
           Sign Out
-        </button>
+        </button></a>
         <a href="/dashboard/profile/{{user_id}}">
         <button id="myAccount" type="button" style="color: #2e424d;background-color:#98DAD9; font-family: 'Courgette', cursive;" class="landing-btn my-4 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
           My Profile
@@ -28,6 +28,7 @@
     {{#each entries as |entry|}}
       {{> indEntry entry}}
       <br>
+    {{> indComment entry.comments}}
     {{/each}}
     </div>
     {{else}}
@@ -39,4 +40,4 @@
   
 </div>
 
-<script src="/js/addComment.js"></script>
+<script src="/js/addCommentNonSingle.js"></script>
