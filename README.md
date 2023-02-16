@@ -2,7 +2,7 @@
 
 ## Description
 
-Day in the life is a full stack web application in which users can create an account and create journal entries. The home page displays a collection of entries from all the user while the dashboard contains entries mad by all users. Inside the Home and Dashboard page, all of the users posts can be accessed to be commented on. The website also allows the user to comment on posts created by other users, or their own if they desire. When the user logs out their session ends and they are no longer able to comment on posts, or view their own. Sessions expire afterr 22 minutes, after which the user will have to log in again if they desire to remain active
+Day in the life is a full stack web application in which users can create an account and create journal entries. The home page displays a collection of entries from all the user while the dashboard contains entries made by all users. Inside the Home and Dashboard page, all of the users posts can be accessed to be commented on. The website also allows the user to comment on posts created by other users, or their own if they desire. When the user logs out their session ends and they are no longer able to comment on posts, or view their own. Sessions expire afterr 22 minutes, after which the user will have to log in again if they desire to remain active
 
 ## Usage 
 
