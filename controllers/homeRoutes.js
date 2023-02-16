@@ -3,13 +3,13 @@ const { Entry, User, Comment } = require('../models')
 const withAuth = require(`../utils/auth`)
 router.get('/landing', (req, res) => res.render(`home`))
   
-router.get(`/`, async (req, res) => {
+router.get(`/`, withAuth, async (req, res) => {
     try {        
         const entryData = await Entry.findAll({
             attributes: [`id`, `entry_title`, `entry_content`, `created_at`],
             include: [{
                 model: Comment,
-                attributes: [`id`, `comment_content`, `entry_id`, `user_id`],
+                attributes: [`id`, `comment_content`, `entry_id`, `user_id`, `created_at`],
                 include: {
                     model: User,
                     attributes: [`user_name`]
@@ -27,13 +27,13 @@ router.get(`/`, async (req, res) => {
 })
 router.get(`/signup`, (req, res)=> [
     req.session.loggedIn?
-    res.redirect(`/dashboard`):
+    res.redirect(`/`):
     res.render(`signup`)
 ])
 
 router.get(`/login`, (req, res) => {
     req.session.loggedIn?
-        res.redirect(`/dashboard`):
+        res.redirect(`/`):
         res.render(`login`)
 })
 

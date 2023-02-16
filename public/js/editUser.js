@@ -4,7 +4,7 @@ const editUser = async (event) => {
     const user_name = document.getElementById(`newUserName`).value.trim()
     const email = document.getElementById(`newUserEmail`).value.trim()
     const location = document.getElementById(`userLocation`).value.trim()
-    const bio = document.getElementById(`userBio`).value
+    const bio = document.getElementById(`bio`).value
     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
      
 
